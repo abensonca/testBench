@@ -33,5 +33,7 @@ jobs:
       - name: Push benchmark result
         run: |
           git branch -a
+          git checkout gh-pages
           git status
           git log
+          git push
