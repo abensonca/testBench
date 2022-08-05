@@ -1,0 +1,41 @@
+name: Benchmarks
+on:
+  workflow_dispatch:
+defaults:
+  run:
+    shell: bash
+concurrency:
+  group: benchmarks-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  Build-Executables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Create benchmark
+        run: |
+          echo '[{"name": "CPU,"unit": "%,"value": 50}]' > benchmark.json
+      - name: Store benchmark result
+        uses: benchmark-action/github-action-benchmark@v1
+        with:
+          tool: 'customSmallerIsBetter'
+          output-file-path: benchmark.json
+          external-data-json-path: ./cache/benchmark.json
+          fail-on-alert: true
+          comment-on-alert: true
+          alert-comment-cc-users: '@abensonca'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-push: false
+          gh-pages-branch: gh-pages
+          alert-threshold: 150%
+          fail-threshold: 200%
+          max-items-in-chart: 256
+      - uses: actions/checkout@v2
+      - name: Push benchmark result
+        run: |
+          git branch -a
+          git checkout gh-pages
+          git status
+          git log
+          git push
