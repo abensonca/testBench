@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Create benchmark
         run: |
-          echo '[{"name": "CPU,"unit": "%,"value": 50}]' > benchmark.json
+          echo '[{"name": "CPU","unit": "%","value": 50}]' > benchmark.json
       - name: Store benchmark result
         uses: benchmark-action/github-action-benchmark@v1
         with:
