@@ -10,6 +10,11 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
+      - name: Upload asset
       - run: gh release upload bleeding-edge README.md --clobber
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update tag
+        run: |
+          git tag -f bleeding-edge
+          git push origin -f bleeding-edge
