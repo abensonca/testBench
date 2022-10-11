@@ -8,6 +8,8 @@ jobs:
   Upload-Assets:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
       - run: gh release upload bleeding-edge README.md --clobber
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
