@@ -1,0 +1,14 @@
+name: 'CI/CD'
+on:
+  workflow_dispatch:
+jobs:
+  Perf-Install:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/galacticusorg/buildenv:latest
+      options: --privileged
+    steps:
+      - name: Install tools
+        run: |
+          apt -y update && apt -y upgrade
+          apt install -y linux-tools-$(uname -r) linux-tools-generic
