@@ -1,4 +1,4 @@
-name: 'CI/CD'
+name: 'Perf'
 on:
   workflow_dispatch:
 jobs:
