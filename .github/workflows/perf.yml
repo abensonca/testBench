@@ -12,5 +12,5 @@ jobs:
         run: |
           apt -y update && apt -y upgrade && apt autoremove
           apt install -y aptitude
-          aptitude install -y linux-tools-$(uname -r) linux-tools-generic
+          aptitude install -y linux-tools-azure linux-tools-generic
           perf -g -e cycles --call-graph dwarf -F 500 -o perf.data ls -lcrt
