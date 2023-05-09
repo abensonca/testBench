@@ -10,5 +10,5 @@ jobs:
     steps:
       - name: Install tools
         run: |
-          apt -y update && apt -y upgrade
+          apt -y update && apt -y upgrade && apt autoremove
           apt install -y linux-tools-$(uname -r) linux-tools-generic
