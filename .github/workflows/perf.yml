@@ -11,4 +11,5 @@ jobs:
       - name: Install tools
         run: |
           apt -y update && apt -y upgrade && apt autoremove
+          apt install -y aptitude
           aptitude install -y linux-tools-$(uname -r) linux-tools-generic
