@@ -1,0 +1,33 @@
+name: 'CI/CD'
+on:
+  workflow_dispatch:
+defaults:
+  run:
+    shell: bash
+jobs:
+  Build-Executable-Linux-Non-Static:
+    runs-on: ubuntu-latest
+    container: ghcr.io/galacticusorg/buildenv:latest
+    steps:
+      - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "This job is now running on a ${{ runner.os }} server."
+      - run: echo "The name of the branch is ${{ github.ref }} and the repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "The ${{ github.repository }} repository has been cloned to the runner."
+      - name: "Set environmental variables"
+        run: |
+          echo "GALACTICUS_EXEC_PATH=$GITHUB_WORKSPACE" >> $GITHUB_ENV
+          echo "GALACTICUS_ANALYSIS_PERL_PATH=$GITHUB_WORKSPACE/analysis-perl" >> $GITHUB_ENV
+      - name: Build the code
+        run: |
+          cd $GALACTICUS_EXEC_PATH
+          git config --global --add safe.directory $GALACTICUS_EXEC_PATH
+          export BUILDPATH=./work/build
+          set -o pipefail
+          make -j2 test.o 2>&1 | tee build.log
+          set +o pipefail
+          ! grep -n -C 5 Error: build.log
+          ! grep -n -C 5 Warning: build.log
+          ! grep -v 'is up to date' build.log | grep -n -C 5 make:
+      - run: echo "This job's status is ${{ job.status }}."
