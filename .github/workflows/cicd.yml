@@ -28,5 +28,5 @@ jobs:
           make -j2 test.o 2>&1 | tee build.log
           set +o pipefail
           ! grep -n -C 5 Warning: build.log
-          echo $?
+          ! grep -q Warning: build.log
       - run: echo "This job's status is ${{ job.status }}."
