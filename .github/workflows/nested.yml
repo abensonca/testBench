@@ -7,8 +7,8 @@ on:
         required: true
         type: number
 
-jobs:
-  job1:
-    steps:
-      - run: echo 'nested version ${{ inputs.version }}'
-      - run: uname -a
+runs:
+  using: "composite"
+  steps:
+    - run: echo 'nested version ${{ inputs.version }}'
+    - run: uname -a
