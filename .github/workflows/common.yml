@@ -12,3 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo 'job1 version ${{ inputs.version }}'
+    uses: ./.github/workflows/nexted.yml
+    with:
+      version: ${{ matrix.version }}

@@ -1,0 +1,14 @@
+name: Nested Workflow
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        type: number
+
+jobs:
+  job1:
+    steps:
+      - run: echo 'nested version ${{ inputs.version }}'
+      - run: uname -a
