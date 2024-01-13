@@ -1,0 +1,23 @@
+name: Ternary
+on:
+  workflow_dispatch:
+jobs:
+  Test-Ternary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache
+        if: ${{ '1' == '1') }}
+        uses: actions/cache@v3
+        with:
+          path: ${{ github.workspace }}
+          key: boof-${{ github.run_id }}
+          restore-keys: |
+            boof
+      - name: Mark time for cache accesses
+        if: ${{ '0' == '1') }}
+        run: |
+          echo mark > mark.time
+      - name: Run test
+        run: |
+          echo ON UBUNTU ${{ startsWith( 'ubuntu-latest', 'ubuntu') && 'ghcr.io/galacticusorg/buildenv:latest' || '' }}
+          echo ON MACOS ${{ startsWith( 'macos-latest', 'ubuntu') && 'ghcr.io/galacticusorg/buildenv:latest' || '' }}
