@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Cache
-        if: ${{ '1' == '1') }}
+        if: ${{ '1' == '1' }}
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}
@@ -14,7 +14,7 @@ jobs:
           restore-keys: |
             boof
       - name: Mark time for cache accesses
-        if: ${{ '0' == '1') }}
+        if: ${{ '0' == '1' }}
         run: |
           echo mark > mark.time
       - name: Run test

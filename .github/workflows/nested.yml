@@ -1,11 +1,9 @@
 name: Nested Workflow
 
-on:
-  workflow_call:
-    inputs:
-      version:
-        required: true
-        type: number
+inputs:
+  version:
+    required: true
+    type: number
 
 runs:
   using: "composite"
