@@ -6,14 +6,12 @@ inputs:
     required: true
     default: 0
 
-defaults:
-  run:
-    shell: bash
-
 runs:
   using: 'composite'
   steps:
     - run: echo 'composite version ${{ inputs.version }}'
+      shell: bash
     - name: Create
       run: |
         echo we made a file > test.file
+      shell: bash
