@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Reuse
-        uses: ./.github/workflows/common
+        uses: ./.github/actions/common
         with:
           version: 1234
       - name: Finish up
