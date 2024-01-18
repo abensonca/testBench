@@ -16,3 +16,6 @@ jobs:
         uses: ./.github/workflows/nested.yml
         with:
           version: ${{ matrix.version }}
+      - name: Create
+        run: |
+          echo we made a file > test.file
