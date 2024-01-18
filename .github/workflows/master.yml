@@ -17,12 +17,12 @@ jobs:
     secrets: inherit
 
   continue:
+    secrets: inherit
     steps:
       - name: Reuse
         uses: ./.github/workflows/common.yml
         with:
           version: 1234
-        secrets: inherit
       - name: Finish up
         run: |
           ls
