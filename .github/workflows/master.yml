@@ -4,20 +4,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  version-matrix:
-    strategy:
-      # super important if you want to see all results, even if one fails
-      # fail-fast is true by default
-      fail-fast: false
-      matrix:
-        version: [10, 12, 14]
-    uses: ./.github/workflows/common.yml
-    with:
-      version: ${{ matrix.version }}
-    secrets: inherit
-
   continue:
-    secrets: inherit
+    runs-on: ubuntu-latest
     steps:
       - name: Reuse
         uses: ./.github/workflows/common.yml
