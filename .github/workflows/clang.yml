@@ -9,9 +9,8 @@ jobs:
     runs-on: macos-14
     steps:
       - run: |
-          echo BEGIN
-          cat /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/cdefs.h
-          echo END
+          sudo sed -E -i~ s/"clang::"/"clang"/g /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/cdefs.h          
+      - run: |
           curl -L http://www.qhull.org/download/qhull-2020-src-8.0.2.tgz --output qhull-2020-src-8.0.2.tgz
           tar xvfz qhull-2020-src-8.0.2.tgz
           cd qhull-2020.2
