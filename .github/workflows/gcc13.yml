@@ -1,0 +1,13 @@
+name: gcc13
+on:
+  workflow_dispatch:
+defaults:
+  run:
+    shell: bash
+jobs:
+  Build:
+    runs-on: macos-13
+    steps:
+      - run: |
+          sudo port install gcc12
+          cat /opt/local/var/macports/logs/_opt_local_var_macports_sources_rsync.macports.org_macports_release_tarballs_ports_lang_gcc12/gcc12/main.log
