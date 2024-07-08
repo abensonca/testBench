@@ -9,6 +9,7 @@ jobs:
     runs-on: macos-13
     steps:
       - run: |
+          export PATH=$PATH:/opt/local/bin:/usr/local/bin
           macportsversion=2.9.1
           macportsbase=2.9.1-13-Ventura
           curl -L https://github.com/macports/macports-base/releases/download/v${macportsversion}/MacPorts-${macportsbase}.pkg --output MacPorts-${macportsbase}.pkg
