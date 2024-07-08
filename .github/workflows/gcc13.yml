@@ -10,5 +10,5 @@ jobs:
     steps:
       - name: Install
         run: |
-          pkgutil --pkg-info=com. apple. pkg. CLTools_Executables
+          pkgutil --pkg-info=com.apple.pkg.CLTools_Executables
           
