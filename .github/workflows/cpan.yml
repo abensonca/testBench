@@ -43,11 +43,11 @@ jobs:
     - name: 3
       shell: bash
       run: |
-        sudo perl -MXML::SAX -e "XML::SAX->add_parser('XML::LibXML::SAX::Parser')->save_parsers()" 
+        sudo perl -MXML::SAX -e "XML::SAX->add_parser('XML::LibXML::SAX::Parser')->save_parsers()"  || true
     - name: 4
       shell: bash
       run: |
-        sudo perl -MXML::SAX -e "XML::SAX->add_parser('XML::LibXML::SAX')->save_parsers()" 
+        sudo perl -MXML::SAX -e "XML::SAX->add_parser('XML::LibXML::SAX')->save_parsers()"  || true
     - name: 5
       shell: bash
       run: |
