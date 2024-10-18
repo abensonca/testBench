@@ -21,4 +21,12 @@ jobs:
       shell: bash
       run: |
         export CFLAGS=-I/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Perl/5.18/darwin-thread-multi-2level/CORE
+        sudo perl -MCPAN -e 'force("install","NestedMap")'
+        sudo perl -MCPAN -e 'force("install","Scalar::Util")'
+        sudo perl -MCPAN -e 'force("install","Term::ANSIColor")'
+        sudo perl -MCPAN -e 'force("install","Text::Table")'
+        sudo perl -MCPAN -e 'force("install","ExtUtils::ParseXS")'
+        sudo perl -MCPAN -e 'force("install","Path::Tiny")'
+        sudo perl -MCPAN -e 'force("install","PkgConfig")'
         sudo perl -MCPAN -e 'force("install","Alien::Base::Wrapper")'
+        sudo perl -MCPAN -e 'force("install","Alien::Libxml2")'
