@@ -21,15 +21,49 @@ jobs:
       shell: bash
       run: |
         export CFLAGS=-I/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Perl/5.18/darwin-thread-multi-2level/CORE
+    - name: a
+      shell: bash
+      run: |
+        sudo perl -MCPAN -e 'force("install","XML::LibXML::SAX::Parser")'
+    - name: b
+      shell: bash
+      run: |
         sudo perl -MCPAN -e 'force("install","NestedMap")'
+    - name: c
+      shell: bash
+      run: |
         sudo perl -MCPAN -e 'force("install","Scalar::Util")'
+    - name: d
+      shell: bash
+      run: |
         sudo perl -MCPAN -e 'force("install","Term::ANSIColor")'
+    - name: e
+      shell: bash
+      run: |
         sudo perl -MCPAN -e 'force("install","Text::Table")'
+    - name: f
+      shell: bash
+      run: |
         sudo perl -MCPAN -e 'force("install","ExtUtils::ParseXS")'
+    - name: g
+      shell: bash
+      run: |
         sudo perl -MCPAN -e 'force("install","Path::Tiny")'
+    - name: h
+      shell: bash
+      run: |
         sudo perl -MCPAN -e 'force("install","PkgConfig")'
+    - name: i
+      shell: bash
+      run: |
         sudo perl -MCPAN -e 'force("install","Alien::Base::Wrapper")'
+    - name: j
+      shell: bash
+      run: |
         sudo perl -MCPAN -e 'force("install","Alien::Libxml2")'
+    - name: k
+      shell: bash
+      run: |
         sudo perl -MCPAN -e 'force("install","XML::LibXML::SAX")'
         # Good to here.
     - name: 1
