@@ -30,3 +30,26 @@ jobs:
         sudo perl -MCPAN -e 'force("install","PkgConfig")'
         sudo perl -MCPAN -e 'force("install","Alien::Base::Wrapper")'
         sudo perl -MCPAN -e 'force("install","Alien::Libxml2")'
+        sudo perl -MCPAN -e 'force("install","XML::LibXML::SAX")'
+        # Good to here.
+        sudo perl -MCPAN -e 'force("install","XML::LibXML::SAX::Parser")'
+        sudo perl -MXML::SAX -e "XML::SAX->add_parser('XML::SAX::PurePerl')->save_parsers()" || true
+        sudo perl -MXML::SAX -e "XML::SAX->add_parser('XML::LibXML::SAX::Parser')->save_parsers()" 
+        sudo perl -MXML::SAX -e "XML::SAX->add_parser('XML::LibXML::SAX')->save_parsers()" 
+        sudo perl -MCPAN -e 'force("install","XML::SAX::ParserFactory")'
+        sudo perl -MCPAN -e 'force("install","XML::Validator::Schema")'
+        sudo perl -MCPAN -e 'force("install","Text::Template")'
+        sudo perl -MCPAN -e 'force("install","List::Uniq")'
+        sudo perl -MCPAN -e 'force("install","IO::Util")'
+        sudo perl -MCPAN -e 'force("install","Class::Util")'
+        # sudo perl -MCPAN -e 'force("install","CGI::Builder")'
+        # sudo perl -MCPAN -e 'force("install","Simple")'
+        # sudo perl -MCPAN -e 'force("install","Readonly")'
+        # sudo perl -MCPAN -e 'force("install","File::Slurp")'
+        # sudo perl -MCPAN -e 'force("install","XML::Simple")'
+        # sudo perl -MCPAN -e 'force("install","List::MoreUtils")'
+        # sudo perl -MCPAN -e 'force("install","Clone")'
+        # sudo perl -MCPAN -e 'force("install","IO::Scalar")'
+        # sudo perl -MCPAN -e 'force("install","Regexp::Common")'
+        # sudo perl -MCPAN -e 'force("install","LaTeX::Encode")'
+        # sudo perl -MCPAN -e 'force("install","Sub::Identify")'
