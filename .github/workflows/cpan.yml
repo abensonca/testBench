@@ -32,24 +32,87 @@ jobs:
         sudo perl -MCPAN -e 'force("install","Alien::Libxml2")'
         sudo perl -MCPAN -e 'force("install","XML::LibXML::SAX")'
         # Good to here.
+    - name: 1
+      shell: bash
+      run: |
         sudo perl -MCPAN -e 'force("install","XML::LibXML::SAX::Parser")'
+    - name: 2
+      shell: bash
+      run: |
         sudo perl -MXML::SAX -e "XML::SAX->add_parser('XML::SAX::PurePerl')->save_parsers()" || true
+    - name: 3
+      shell: bash
+      run: |
         sudo perl -MXML::SAX -e "XML::SAX->add_parser('XML::LibXML::SAX::Parser')->save_parsers()" 
+    - name: 4
+      shell: bash
+      run: |
         sudo perl -MXML::SAX -e "XML::SAX->add_parser('XML::LibXML::SAX')->save_parsers()" 
+    - name: 5
+      shell: bash
+      run: |
         sudo perl -MCPAN -e 'force("install","XML::SAX::ParserFactory")'
+    - name: 6
+      shell: bash
+      run: |
         sudo perl -MCPAN -e 'force("install","XML::Validator::Schema")'
+    - name: 7
+      shell: bash
+      run: |
         sudo perl -MCPAN -e 'force("install","Text::Template")'
+    - name: 8
+      shell: bash
+      run: |
         sudo perl -MCPAN -e 'force("install","List::Uniq")'
+    - name: 9
+      shell: bash
+      run: |
         sudo perl -MCPAN -e 'force("install","IO::Util")'
+    - name: 10
+      shell: bash
+      run: |
         sudo perl -MCPAN -e 'force("install","Class::Util")'
-        # sudo perl -MCPAN -e 'force("install","CGI::Builder")'
-        # sudo perl -MCPAN -e 'force("install","Simple")'
-        # sudo perl -MCPAN -e 'force("install","Readonly")'
-        # sudo perl -MCPAN -e 'force("install","File::Slurp")'
-        # sudo perl -MCPAN -e 'force("install","XML::Simple")'
-        # sudo perl -MCPAN -e 'force("install","List::MoreUtils")'
-        # sudo perl -MCPAN -e 'force("install","Clone")'
-        # sudo perl -MCPAN -e 'force("install","IO::Scalar")'
-        # sudo perl -MCPAN -e 'force("install","Regexp::Common")'
-        # sudo perl -MCPAN -e 'force("install","LaTeX::Encode")'
-        # sudo perl -MCPAN -e 'force("install","Sub::Identify")'
+    - name: 11
+      shell: bash
+      run: |
+        sudo perl -MCPAN -e 'force("install","CGI::Builder")'
+    - name: 12
+      shell: bash
+      run: |
+        sudo perl -MCPAN -e 'force("install","Simple")'
+    - name: 13
+      shell: bash
+      run: |
+        sudo perl -MCPAN -e 'force("install","Readonly")'
+    - name: 14
+      shell: bash
+      run: |
+        sudo perl -MCPAN -e 'force("install","File::Slurp")'
+    - name: 15
+      shell: bash
+      run: |
+        sudo perl -MCPAN -e 'force("install","XML::Simple")'
+    - name: 16
+      shell: bash
+      run: |
+        sudo perl -MCPAN -e 'force("install","List::MoreUtils")'
+    - name: 17
+      shell: bash
+      run: |
+        sudo perl -MCPAN -e 'force("install","Clone")'
+    - name: 18
+      shell: bash
+      run: |
+        sudo perl -MCPAN -e 'force("install","IO::Scalar")'
+    - name: 19
+      shell: bash
+      run: |
+        sudo perl -MCPAN -e 'force("install","Regexp::Common")'
+    - name: 20
+      shell: bash
+      run: |
+        sudo perl -MCPAN -e 'force("install","LaTeX::Encode")'
+    - name: 21
+      shell: bash
+      run: |
+        sudo perl -MCPAN -e 'force("install","Sub::Identify")'
