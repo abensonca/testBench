@@ -1,0 +1,24 @@
+name: CPAN
+on:
+  workflow_dispatch:
+defaults:
+  run:
+    shell: bash
+jobs:
+  Build:
+    runs-on: macos-14
+    steps:
+    - name: Set env
+      shell: bash
+      run: |
+        echo "PERL_MM_USE_DEFAULT=1" >> $GITHUB_ENV
+    - name: Install CPAN
+      shell: bash
+      run: |
+        sudo perl -MCPAN -e shell
+        sudo perl -MCPAN -e 'install Bundle::CPAN'
+    - name: Install Perl modules
+      shell: bash
+      run: |
+        export CFLAGS=-I/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Perl/5.18/darwin-thread-multi-2level/CORE
+        sudo perl -MCPAN -e 'force("install","JSON/MaybeXS")'
