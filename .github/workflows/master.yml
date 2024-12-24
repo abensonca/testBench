@@ -13,4 +13,4 @@ jobs:
         uses: actions/checkout@v4
       - name: Finish up
         run: |
-          gfortran -v
+          gfortran-12 -v
