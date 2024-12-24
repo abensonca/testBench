@@ -9,11 +9,7 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v4
-      - name: Reuse
-        uses: ./.github/actions/common
-        with:
-          version: 1234
       - name: Finish up
         run: |
-          ls
-          cat test.file
+          gfortran -v
+          gfortran -V
