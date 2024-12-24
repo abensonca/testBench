@@ -6,10 +6,11 @@ on:
 jobs:
   continue:
     runs-on: ubuntu-latest
+    compiler: gcc
+    gcc: 12
     steps:
       - name: Check out
         uses: actions/checkout@v4
       - name: Finish up
         run: |
           gfortran -v
-          gfortran -V
