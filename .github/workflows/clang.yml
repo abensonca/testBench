@@ -1,4 +1,4 @@
-name: Clang
+name: TeatTar
 on:
   workflow_dispatch:
 defaults:
@@ -7,14 +7,7 @@ defaults:
 jobs:
   Build:
     runs-on: macos-14
-    steps:
+    steps:          
       - run: |
-          sudo sed -E -i~ s/"clang::"/"clang"/g /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/cdefs.h          
-      - run: |
-          curl -L http://www.qhull.org/download/qhull-2020-src-8.0.2.tgz --output qhull-2020-src-8.0.2.tgz
-          tar xvfz qhull-2020-src-8.0.2.tgz
-          cd qhull-2020.2
-          make -j3 CC=gcc-11 CXX=g++-11
-          sudo make install
-          cd ..
-          rm -rf qhull-2020-src-8.0.2.tgz qhull-2020.2
+          curl -L http://www.cs.umd.edu/~mount/ANN/Files/1.1.2/ann_1.1.2.tar.gz --output ann_1.1.2.tar.gz
+          tar xvfz ann_1.1.2.tar.gz
