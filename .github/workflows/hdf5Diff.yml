@@ -23,6 +23,7 @@ jobs:
       - name: Mark directory safe        
         run: |
           git config --global --add safe.directory $GALACTICUS_EXEC_PATH
+          git config --local --add include.path ../.gitconfig
       - name: Install tools
         run: |
           sudo apt -y update
@@ -59,7 +60,7 @@ jobs:
             echo '```'  >> diffs.md
             FILE_SIZE=$(stat -c%s "${file}")
             if (( FILE_SIZE < 102400 )); then
-              git difftool --tool="h5diff -r -c" ${file} ${{ github.base_ref }}/${file} >> diffs.md
+              git difftool --tool="hdf5diff" ${file} ${{ github.base_ref }}/${file} >> diffs.md
             else
               echo "File is too large to display diff" >> diffs.md
             fi
