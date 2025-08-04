@@ -63,7 +63,7 @@ jobs:
             echo '```'  >> diffs.md
             FILE_SIZE=$(stat -c%s "${file}")
             if (( FILE_SIZE < 102400 )); then
-              git difftool --tool="hdf5diff" ${{ github.head_ref }} origin/${{ github.base_ref }} -- ${file} >> diffs.md
+              git difftool --no-prompt --tool="hdf5diff" ${{ github.head_ref }} origin/${{ github.base_ref }} -- ${file} >> diffs.md
             else
               echo "File is too large to display diff" >> diffs.md
             fi
