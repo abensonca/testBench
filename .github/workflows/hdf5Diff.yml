@@ -43,3 +43,25 @@ jobs:
             echo Added: ${file}
             echo "* Added: [${file}](https://myhdf5.hdfgroup.org/view?url=${{ github.event.pull_request.head.repo.html_url }}/${{ github.head_ref }}/blob/${file})" >> $GITHUB_STEP_SUMMARY
           done
+      - name: Identify any deleted HDF5 files
+        run: |
+          for file in ${{ steps.changed-files.outputs.deleted_files }}; do
+            echo Deleted: ${file}
+            echo "* Deleted: [${file}](https://myhdf5.hdfgroup.org/view?url=${{ github.event.pull_request.head.repo.html_url }}/${{ github.head_ref }}/blob/${file})" >> $GITHUB_STEP_SUMMARY
+            echo "  * Original: [${file}](https://myhdf5.hdfgroup.org/view?url=${{ github.event.pull_request.base.repo.html_url }}/${{ github.base_ref }}/blob/${file})" >> $GITHUB_STEP_SUMMARY
+          done
+      - name: Identify any modified HDF5 files
+        run: |
+          for file in ${{ steps.changed-files.outputs.modified_files }}; do
+            echo Modified: ${file}
+            echo "* Modified: [${file}](https://myhdf5.hdfgroup.org/view?url=${{ github.event.pull_request.head.repo.html_url }}/${{ github.head_ref }}/blob/${file})" >> $GITHUB_STEP_SUMMARY
+            echo "  * Original: [${file}](https://myhdf5.hdfgroup.org/view?url=${{ github.event.pull_request.base.repo.html_url }}/${{ github.base_ref }}/blob/${file})" >> $GITHUB_STEP_SUMMARY
+            echo '```'  >> $GITHUB_STEP_SUMMARY
+            FILE_SIZE=$(stat -c%s "${file}")
+            if (( FILE_SIZE < 102400 )); then
+              git difftool --tool="h5diff -r -c" ${file} ${{ github.base_ref }}/${file} >> $GITHUB_STEP_SUMMARY
+            else
+              echo "File is too large to display diff" >> $GITHUB_STEP_SUMMARY
+            fi
+            echo '```'  >> $GITHUB_STEP_SUMMARY
+          done
