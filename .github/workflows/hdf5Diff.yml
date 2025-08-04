@@ -41,5 +41,5 @@ jobs:
         run: |
           for file in ${{ steps.changed-files.outputs.added_files }}; do
             echo Added: ${file}
-            echo "* Added: [${file}](https://myhdf5.hdfgroup.org/view?url=${{ github.event.pull_request.head.repo.html_url }}/testBench/blob/master/${file})" >> $GITHUB_STEP_SUMMARY
+            echo "* Added: [${file}](https://myhdf5.hdfgroup.org/view?url=${{ github.event.pull_request.head.repo.html_url }}/${{ github.head_ref }}/blob/${file})" >> $GITHUB_STEP_SUMMARY
           done
