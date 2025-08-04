@@ -3,7 +3,7 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
     branches:
-      - master
+      - main
 concurrency:
   group: hdf5Diff-${{ github.ref }}
   cancel-in-progress: true  
