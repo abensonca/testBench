@@ -1,0 +1,17 @@
+name: Echo
+on:
+  workflow_dispatch:
+jobs:
+  Test-Echo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: qoomon/actions--context@v4
+      - name: "Check for unrecognized parameters"
+        run: |
+          cd $GALACTICUS_EXEC_PATH
+          echo thingy > unrecognized.txt
+          if [ -s "unrecognized.txt ]; then
+           echo "# :warning: Unrecognized parameters from ${GITHUB_JOB_NAME} :warning:" >> $GITHUB_STEP_SUMMARY
+           echo ":information_source: Job log can be found [here]\(${GITHUB_JOB_HTML_URL}\)" >> $GITHUB_STEP_SUMMARY
+           cat unrecognized.txt >> $GITHUB_STEP_SUMMARY
+          fi
