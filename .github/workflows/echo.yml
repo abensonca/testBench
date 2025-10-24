@@ -12,6 +12,6 @@ jobs:
           echo thingy > unrecognized.txt
           if [ -s "unrecognized.txt ]; then
            echo "# :warning: Unrecognized parameters from ${GITHUB_JOB_NAME} :warning:" >> $GITHUB_STEP_SUMMARY
-           echo ":information_source: Job log can be found [here]\(${GITHUB_JOB_HTML_URL}\)" >> $GITHUB_STEP_SUMMARY
+           echo ":information_source: Job log can be found [here]\(${GITHUB_JOB_URL}\)" >> $GITHUB_STEP_SUMMARY
            cat unrecognized.txt >> $GITHUB_STEP_SUMMARY
           fi
