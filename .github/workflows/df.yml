@@ -14,5 +14,8 @@ jobs:
         run: |
           apt autoremove
           apt list --installed
+      - name: Measure
+        run: |
+          du -sh /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
       - name: Profile
         run: df -h
