@@ -1,0 +1,17 @@
+name: 'DF'
+on:
+  workflow_dispatch:
+jobs:
+  DF:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/galacticusorg/buildenv:latest
+      options: --privileged
+    steps:
+      - name: Profile
+        run: df -h
+      - name: AutoRemove
+        run: |
+          apt autoremove
+      - name: Profile
+        run: df -h
