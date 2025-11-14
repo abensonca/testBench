@@ -16,6 +16,6 @@ jobs:
           apt list --installed
       - name: Measure
         run: |
-          du -sh /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+          du -sh /*
       - name: Profile
         run: df -h
