@@ -13,5 +13,6 @@ jobs:
       - name: AutoRemove
         run: |
           apt autoremove
+          apt list --installed
       - name: Profile
         run: df -h
