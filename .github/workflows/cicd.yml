@@ -32,4 +32,5 @@ jobs:
           df -h /tmp
           df -h /mnt
           pwd
+          echo TMP IS ${RUNNER_TEMP}
       - run: echo "This job's status is ${{ job.status }}."
