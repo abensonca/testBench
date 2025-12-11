@@ -25,7 +25,11 @@ jobs:
           git config --global --add safe.directory $GALACTICUS_EXEC_PATH
           export BUILDPATH=./work/build
           set -o pipefail
-          make -j2 test.o 2>&1 | tee build.log
-          set +o pipefail
-          ! grep -n Warning: build.log
+          #make -j2 test.o 2>&1 | tee build.log
+          #set +o pipefail
+          #! grep -n Warning: build.log
+          echo DISK SPACE
+          df -h /tmp
+          df -h /mnt
+          pwd
       - run: echo "This job's status is ${{ job.status }}."
