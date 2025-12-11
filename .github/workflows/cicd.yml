@@ -29,8 +29,8 @@ jobs:
           #set +o pipefail
           #! grep -n Warning: build.log
           echo DISK SPACE
-          df -h /tmp
-          df -h /mnt
+          df -h /__w/testBench/testBench
+          df -h /__w/_temp
           pwd
           echo TMP IS ${RUNNER_TEMP}
       - run: echo "This job's status is ${{ job.status }}."
