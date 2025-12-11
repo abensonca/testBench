@@ -33,4 +33,6 @@ jobs:
           df -h /__w/_temp
           pwd
           echo TMP IS ${RUNNER_TEMP}
+          dd if=/dev/zero of=/dev/shm/4gb_file.img bs=1G count=4
+          ls -lSr /dev/shm
       - run: echo "This job's status is ${{ job.status }}."
