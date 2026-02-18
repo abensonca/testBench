@@ -16,3 +16,5 @@ jobs:
           which perf
           ls -l `which perf`
           find /usr/lib/linux-tools -type f
+          dpkg -L linux-tools-`uname -r`
+          dpkg -L linux-cloud-tools-`uname -r`
