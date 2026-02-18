@@ -12,4 +12,7 @@ jobs:
         run: |
           apt -y update && apt -y upgrade && apt autoremove
           uname -r
-          apt install -y linux-tools-`uname -r` linux-tools-generic
+          apt install -y linux-tools-`uname -r` linux-cloud-tools-`uname -r` linux-tools-generic
+          which perf
+          ls -l `which perf`
+          find /usr/lib/linux-tools -type f
