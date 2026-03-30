@@ -8,9 +8,9 @@ jobs:
   Build:
     runs-on: macos-15
     env:
-      MACOS_KEYCHAIN_PASSWORD=munky123
-      MACOS_CERTIFICATE_PASSWORD=${{ secrets.MACOS_CERTIFICATE_PASSWORD }}
-      MACOS_CERTIFICATE=${{ secrets.MACOS_CERTIFICATE }}
+      MACOS_KEYCHAIN_PASSWORD: munky123
+      MACOS_CERTIFICATE_PASSWORD: ${{ secrets.MACOS_CERTIFICATE_PASSWORD }}
+      MACOS_CERTIFICATE: ${{ secrets.MACOS_CERTIFICATE }}
     steps:
       - name: Sign Galacticus executable
         shell: bash
